@@ -1,25 +1,25 @@
-import { useState } from "react"
+import { useState } from "react";
+import * as styles from "./popup.module.css";
 
 function IndexPopup() {
-  const [data, setData] = useState("")
+  const [data, setData] = useState({
+    mid: 25,
+    high: 50,
+  });
+  const handleClick = () => {
+    console.log("50 times chosen!");
+  }
 
   return (
-    <div
-      style={{
-        padding: 16
-      }}>
-      <h2>
-        Welcome to your{" "}
-        <a href="https://www.plasmo.com" target="_blank">
-          Plasmo
-        </a>{" "}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href="https://docs.plasmo.com" target="_blank">
-        View Docs
-      </a>
-    </div>
+    <main className={styles.container}>
+      <h2>This is SuperClap</h2>
+
+      <div className={styles.buttonCover}>
+        <button className={styles.clapButton}>
+          Clap 50 times!
+        </button>
+      </div>
+    </main>
   )
 }
 
