@@ -1,9 +1,0 @@
-#root > div > div.l.c > div:nth-child(2) > footer > div > div > div > div {
-  position: relative;
-}
-
-#footer-superclaps {
-  position: absolute;
-  left: 0;
-  top: 35px;
-}
