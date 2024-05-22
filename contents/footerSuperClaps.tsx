@@ -63,7 +63,7 @@ export const handleClap = (range: "mid" | "high", from: "footer" | "header") => 
   tryClap(amountOfClaps, from);
 }
 
-const HeaderSuperClaps = () => {
+const FooterSuperClaps = () => {
   if (!check) {
     return (false);
   }
@@ -79,4 +79,4 @@ const HeaderSuperClaps = () => {
   )
 }
 
-export default HeaderSuperClaps
+export default FooterSuperClaps
