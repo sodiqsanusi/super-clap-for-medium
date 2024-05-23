@@ -1,5 +1,5 @@
 .container {
-  width: 130px;
+  width: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +8,7 @@
 
 .container button {
   cursor: pointer;
+  width: 45%;
 }
 
 #superContainers {

@@ -1,10 +1,13 @@
 import cssText from "data-text:~/contents/superClaps.css";
-import type { PlasmoCSConfig, PlasmoGetInlineAnchor } from "plasmo";
+import type { PlasmoCSConfig, PlasmoGetInlineAnchor, PlasmoGetInlineAnchorList } from "plasmo";
+import { useStorage } from "@plasmohq/storage/hook";
 
 export const config: PlasmoCSConfig = {
-  matches: ["https:/\/*.medium.com/*", "https://medium.com/", "https://medium.com/*"],
+  matches: ["https:/\/*.medium.com/*", "https://medium.com/", "https://medium.com/*", "https://medium.com/*/*"],
   run_at: "document_end",
 }
+
+console.log("Runs here!")
 
 export const getStyle = () => {
   const style = document.createElement("style");
@@ -12,17 +15,16 @@ export const getStyle = () => {
   return style;
 }
 
-export const getInlineAnchor: PlasmoGetInlineAnchor = () =>
-  document.querySelector(`[data-testid='footerClapButton']`);
+export const getInlineAnchorList: PlasmoGetInlineAnchorList = () =>
+  document.querySelectorAll(`[data-testid='footerClapButton']`);
 
 export const getShadowHostId = () => "footer-superclaps";
-let check = false;
+let check = true;
 const match_article = /https?:\/\/(medium\.com\/(p\/[a-zA-Z0-9]+|@[\w-]+\/[\w-]+|[\w-]+\/[\w-]+)|[\w-]+\.medium\.com\/[\w-]+)/;
 
 chrome.runtime.onMessage.addListener((obj) => {
   const { lilac } = obj;
   check = match_article.test(lilac);
-  console.log(check);
 });
 
 let tryClap = null;
@@ -57,24 +59,26 @@ const lilac = () => {
   }
 }
 
-export const handleClap = (range: "mid" | "high", from: "footer" | "header") => {
-  let amountOfClaps = range == "mid" ? 25 : 50;
+export const handleClap = (range: "mid" | "high", from: "footer" | "header", clapCount) => {
+  let amountOfClaps = parseInt(clapCount[range]);
   lilac();
   tryClap(amountOfClaps, from);
 }
 
 const FooterSuperClaps = () => {
+  const [storedClaps] = useStorage("storedClaps");
+
   if (!check) {
     return (false);
   }
   return (
     <div className="container" id="superContainers">
       <button
-        onClick={() => handleClap("mid", "footer")}
-      >Clap 25</button>
+        onClick={() => handleClap("mid", "footer", storedClaps)}
+      >⚡</button>
       <button
-        onClick={() => handleClap("high", "footer")}
-      >Clap 50</button>
+        onClick={() => handleClap("high", "footer", storedClaps)}
+      >🔥</button>
     </div>
   )
 }

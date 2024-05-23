@@ -68,9 +68,9 @@ const PopupComponent =  () => {
       </section>
 
       <div>
-        {storedClaps.mid}
+        ⚡ = {storedClaps.mid}
         <br />
-        {storedClaps.high}
+        🔥 = {storedClaps.high}
       </div>
 
       <button onClick={handleSave}>Save Claps</button>
