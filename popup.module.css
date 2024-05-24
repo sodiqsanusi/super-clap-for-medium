@@ -1,7 +1,9 @@
+.container, 
 .container *,
 .container *::before,
 .container *::after {
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container * {
@@ -13,36 +15,139 @@
 }
 
 .container {
-  background-color: aquamarine;
-  width: 200px;
-  height: 200px;
-  padding: 2em 0;
-  border-radius: 6px;
+  background-color: #ffffff;
+  width: 330px;
+  height: 330px;
+  border-radius: 18px;
+  padding: 15px 25px;
+}
+
+/* ------------------------- */
+
+.headerContainer {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15%;
 }
 
-.container h2 {
-  font-size: 1.5rem;
+.headerContainer h2 {
+  width: 20%;
+  margin-left: auto;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #b9b8b8;
 }
+
+.logoHolder {
+  width: 40%;
+}
+.logoHolder img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------- */
+
+
 
 .setContainer {
-  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  row-gap: .5em;
+  justify-content: center;
+  row-gap: 1em;
+  margin-bottom: 15%;
 }
 
-.setContainer div {
-  width: 100%;
-  max-width: 60px;
-  margin: 0 auto;
+.inputLayout {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  align-items: center;
+  column-gap: .3em;
 }
 
-.container button {
+.inputLayout span {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.inputLayout input {
+  color: #a1a1a1;
+  outline: none;
+  border: solid 1px #d5d5d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 40px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.inputLayout input:focus, .inputLayout:hover {
+  border-color: #000000;
+  color: #000000;
+}
+
+/* -------------------- */
+
+.saveSection {
+  position: relative;
+}
+
+.afterSave {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .85rem;
+  color: #4cb248;
+  text-align: center;
+
+}
+
+.saveButton {
   cursor: pointer;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  width: 100%;
+  padding: .8em 0;
+  text-align: center;
+  background-color: #0f730c;
+  color: #ffffff;
+  border-radius: 24px;
+  margin-bottom: 15%;
+}
+.saveButton:hover, .saveButton:focus {
+  background-color: #0a6007;
+}
+
+/* ------------------------ */
+
+.popupFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: .85em;
+}
+
+.footerText {
+  font-weight: 700;
+  font-size: .85rem;
+  color: #b9b8b8;
+} .footerText a {
+  color: #000000;
+}
+.footerText a:hover, .footerText a:focus {
+  color: #0a6007;
 }

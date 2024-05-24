@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logoImage from "data-base64:~assets/logo.png";
 import * as styles from "./popup.module.css";
 import { useStorage } from "@plasmohq/storage/hook";
 
@@ -16,64 +17,86 @@ const PopupComponent =  () => {
     setHighState(storedClaps.high);
   }, [storedClaps])
 
+  const [justSaved, setJustSaved] = useState(false);
   const [midState, setMidState] = useState(storedClaps.mid);
   const [highState, setHighState] = useState(storedClaps.high);
 
   const handleSave = () => {
+    if (!midState || parseInt(midState) < 1) {
+      console.log("Wrong Input!");
+      setMidState("1");
+    }
+    if (!highState || parseInt(highState) < 1) {
+      console.log("Wrong Input!");
+      setHighState("1");
+    }
     savedClaps = {
-      mid: midState,
-      high: highState,
+      mid: midState && midState > 0 ? midState : "25",
+      high: highState && highState > 0 ? highState : "50",
     }
 
+    console.log(savedClaps);
     setStoredClaps(savedClaps);
+    setJustSaved(true);
+    setTimeout(() => {
+      setJustSaved(false);
+    }, 1500);
   } 
 
   const manageNumInput = (ev: React.ChangeEvent<HTMLInputElement>, kind: "mid" | "high") => {
-    if (ev.target.value == "") {
+    if (parseInt(ev.target.value) > 50 || parseInt(ev.target.value) < 0) {
       return
     }
     if (kind == "mid") {
-      if (parseInt(ev.target.value) > parseInt(highState)) {
-        return
-      }
       setMidState(ev.target.value);
     }
     else if (kind == "high") {
-      if ((parseInt(ev.target.value) < parseInt(midState)) || parseInt(ev.target.value) > 50) {
-        return
-      }
       setHighState(ev.target.value);
     }
   }
 
   return (
     <main className={styles.container}>
-      <h2>SuperClap👏🏾</h2>
+      <header className={styles.headerContainer}>
+        <div className={styles.logoHolder}>
+          <img src={logoImage} alt="SuperClap's Logo" />
+        </div>
+        <h2>Settings</h2>
+      </header>
 
       <section className={styles.setContainer}>
-        <div>
-          <h3>Mid</h3>
+        <div className={styles.inputLayout}>
+          <span>🔥</span>
           <input
-           type="number" name="midClaps" min="1" max={highState} required
+           type="number" name="midClaps" min="1" max="50" required
            value={midState} onChange={e => manageNumInput(e, "mid")}
           />
         </div>
-        <div>
-          <h3>High</h3>
+        <div className={styles.inputLayout}>
+          <span>⚡</span>
           <input
-            type="number" name="highClaps" min={midState} max="50"
+            type="number" name="highClaps" min="1" max="50"
             value={highState} onChange={e => manageNumInput(e, "high")}
           />
         </div>
       </section>
 
-      <div>
-        ⚡ = {storedClaps.mid}
-        <br />
-        🔥 = {storedClaps.high}
+      <div className={styles.saveSection}>
+        {justSaved && <p className={styles.afterSave}>Clap Count Saved</p>}
+        <button
+          className={styles.saveButton}
+          onClick={handleSave}
+        >Save Claps</button>
       </div>
 
-      <button onClick={handleSave}>Save Claps</button>
+      <footer className={styles.popupFooter}>
+        <p className={styles.footerText}>
+          Built by <a href="https://github.com/sodiqsanusi/" target="_blank">Sodiq "Ade" Sanusi</a>
+        </p>
+        <p className={styles.footerText}>
+          Designed by <a href="https://mideoladele.webflow.io/" target="_blank">Mide</a>
+        </p>
+      </footer>
     </main>
   );
 }
