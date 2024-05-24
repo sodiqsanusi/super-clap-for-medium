@@ -22,20 +22,11 @@ const PopupComponent =  () => {
   const [highState, setHighState] = useState(storedClaps.high);
 
   const handleSave = () => {
-    if (!midState || parseInt(midState) < 1) {
-      console.log("Wrong Input!");
-      setMidState("1");
-    }
-    if (!highState || parseInt(highState) < 1) {
-      console.log("Wrong Input!");
-      setHighState("1");
-    }
     savedClaps = {
       mid: midState && midState > 0 ? midState : "25",
       high: highState && highState > 0 ? highState : "50",
     }
 
-    console.log(savedClaps);
     setStoredClaps(savedClaps);
     setJustSaved(true);
     setTimeout(() => {
@@ -46,6 +37,9 @@ const PopupComponent =  () => {
   const manageNumInput = (ev: React.ChangeEvent<HTMLInputElement>, kind: "mid" | "high") => {
     if (parseInt(ev.target.value) > 50 || parseInt(ev.target.value) < 0) {
       return
+    }
+    if (ev.target.value.length > 2) {
+      return;
     }
     if (kind == "mid") {
       setMidState(ev.target.value);

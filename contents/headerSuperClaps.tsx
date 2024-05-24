@@ -36,10 +36,16 @@ const HeaderSuperClaps = () => {
     <div className="container" id="superContainers">
       <button title="mid"
         onClick={() => handleClap("mid", "header", storedClaps)}
-      >⚡</button>
+      >
+        🔥
+        {storedClaps && <span>{storedClaps.mid}</span>}
+      </button>
       <button title="high"
         onClick={() => handleClap("high", "header", storedClaps)}
-      >🔥</button>
+      >
+        ⚡
+        {storedClaps && <span>{storedClaps.high}</span>}
+      </button>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 .container {
-  width: 120px;
+  width: 140px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,12 +7,33 @@
 }
 
 .container button {
+  display: flex;
+  align-items: center;
+  column-gap: .1em;
+  outline: none;
+  border: none;
+  width: 50%;
+  max-width: 65px;
+  background-color: #f2f2f2;
+  color: #9b9b9b;
   cursor: pointer;
   width: 45%;
+  padding: .5em;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.container button span {
+  font-size: .9rem;
+  transform: translateY(1.2px);
 }
 
 #superContainers {
   position: absolute;
   left: 0;
   top: 10px;
+}
+
+#plasmo-shadow-container {
+  z-index: 699 !important;
 }

@@ -1,13 +1,11 @@
 import cssText from "data-text:~/contents/superClaps.css";
-import type { PlasmoCSConfig, PlasmoGetInlineAnchor, PlasmoGetInlineAnchorList } from "plasmo";
+import type { PlasmoCSConfig, PlasmoGetInlineAnchorList } from "plasmo";
 import { useStorage } from "@plasmohq/storage/hook";
 
 export const config: PlasmoCSConfig = {
   matches: ["https:/\/*.medium.com/*", "https://medium.com/", "https://medium.com/*", "https://medium.com/*/*"],
   run_at: "document_end",
 }
-
-console.log("Runs here!")
 
 export const getStyle = () => {
   const style = document.createElement("style");
@@ -73,12 +71,18 @@ const FooterSuperClaps = () => {
   }
   return (
     <div className="container" id="superContainers">
-      <button
-        onClick={() => handleClap("mid", "footer", storedClaps)}
-      >⚡</button>
-      <button
-        onClick={() => handleClap("high", "footer", storedClaps)}
-      >🔥</button>
+      <button title="mid"
+        onClick={() => handleClap("mid", "header", storedClaps)}
+      >
+        🔥
+        {storedClaps && <span>{storedClaps.mid}</span>}
+      </button>
+      <button title="high"
+        onClick={() => handleClap("high", "header", storedClaps)}
+      >
+        ⚡
+        {storedClaps && <span>{storedClaps.high}</span>}
+      </button>
     </div>
   )
 }
