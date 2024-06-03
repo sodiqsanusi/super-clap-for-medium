@@ -1,9 +1,10 @@
 {
   "name": "super-clap-for-medium",
-  "displayName": "Super Clap for medium",
+  "displayName": "Superclap for medium",
   "version": "0.0.1",
   "description": "Streamline your Medium experience with just one click: SuperClap for easy article appreciation.",
   "author": "Sodiq \"Ade\" Sanusi. <ademilddiq@gmail.com>",
+  "homepage": "https://github.com/sodiqsanusi/super-clap-for-medium",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",

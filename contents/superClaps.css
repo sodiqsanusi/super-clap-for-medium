@@ -23,6 +23,10 @@
   font-size: 1rem;
 }
 
+.container button:hover, .container button:focus {
+  background-color: #b8b6b68a;
+}
+
 .container button span {
   font-size: .9rem;
   transform: translateY(1.2px);
