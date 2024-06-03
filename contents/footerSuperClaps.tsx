@@ -69,22 +69,22 @@ const FooterSuperClaps = () => {
   if (!check) {
     return (false);
   }
-  return (
+  return (storedClaps && (
     <div className="container" id="superContainers">
-      <button title="mid"
+      <button title={`${storedClaps.mid} ${storedClaps.mid > 1 ? "claps" : "clap"}`}
         onClick={() => handleClap("mid", "header", storedClaps)}
       >
         🔥
-        {storedClaps && <span>{storedClaps.mid}</span>}
+        <span>{storedClaps.mid}</span>
       </button>
-      <button title="high"
+      <button title={`${storedClaps.high} ${storedClaps.high > 1 ? "claps" : "clap"}`}
         onClick={() => handleClap("high", "header", storedClaps)}
       >
         ⚡
-        {storedClaps && <span>{storedClaps.high}</span>}
+        <span>{storedClaps.high}</span>
       </button>
     </div>
-  )
+  ))
 }
 
 export default FooterSuperClaps
