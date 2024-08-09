@@ -6,3 +6,7 @@ chrome.tabs.onUpdated.addListener((tabId, tab) => {
     });
   }
 });
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.action.openPopup();
+})
