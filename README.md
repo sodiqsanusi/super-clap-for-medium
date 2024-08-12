@@ -1,33 +1,67 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# SuperClap for Medium - Browser Extension
 
-## Getting Started
+**SuperClap** is a browser extension designed to automate the clapping process on Medium articles. With this tool, users can send a customizable number of claps with just one click, enhancing article engagement and saving time.
 
-First, run the development server:
+## Features
 
-```bash
-pnpm dev
-# or
-npm run dev
-```
+- **Customizable Clap Count:** Users can set their preferred number of claps per click.
+    
+- **One-Click Clapping:** Simplify the process of showing appreciation by automating claps.
+    
+- **Medium Integration:** The extension activates only on Medium articles, ensuring a seamless user experience.
+    
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+## Installation
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+To use SuperClap, simply install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/superclap-for-medium/kdbgbejbmkoigoeajcfhngefiekcfmjc).
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+## Technical Overview
 
-## Making production build
+SuperClap is built using **React** on [Plasmo](https://www.plasmo.com/), a framework specifically designed for building browser extensions. The extension leverages modern web technologies to ensure a smooth and efficient user experience.
 
-Run the following:
+### Technologies Used
 
-```bash
-pnpm build
-# or
-npm run build
-```
+- **React:** For building the user interface components.
+    
+- [**Plasmo Framework**](https://www.plasmo.com/)**:** Facilitates the development of the browser extension with React.
+    
+- **JavaScript:** Core logic for automating the clapping process.
+    
+- **HTML/CSS:** For structuring and styling the user interface.
+    
+- **Browser Storage API:** Used to store user preferences, such as the number of claps per click.
+    
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+## Contribution
 
-## Submit to the webstores
+Contributions are welcome! Here's how you can help:
 
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+1. Fork the repository.
+    
+2. Create a new branch (`git checkout -b feature-branch`).
+    
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+    
+4. Push to the branch (`git push origin feature-branch`).
+    
+5. Open a Pull Request.
+    
+
+For major changes, please open an issue first to discuss your proposed modifications.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Connect with Us
+
+* **Project Lead:** Sodiq "Ade" Sanusi - [GitHub](https://github.com/sodiqsanusi) | [LinkedIn](https://www.linkedin.com/in/sodiqsanusi)
+    
+* **Interface Designer:** Ayomide Oladele - [Portfolio](https://mideoladele.webflow.io/)
+    
+
+## Links
+
+* **GitHub Repository:** [SuperClap](https://github.com/sodiqsanusi/super-clap-for-medium)
+    
+* **Chrome Web Store:** [SuperClap for Medium](https://chromewebstore.google.com/detail/superclap-for-medium/kdbgbejbmkoigoeajcfhngefiekcfmjc)
